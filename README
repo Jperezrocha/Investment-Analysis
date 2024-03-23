@@ -1,0 +1,66 @@
+Predicting Stock Market Movements: An Analysis of Amazon's Stock
+
+Introduction
+Timing the stock market is one of the most challenging tasks for investors. Many try to buy at the "dip" and sell at the top, but it's incredibly difficult to predict the right moments to execute these trades. Several factors influence the success rate of trading strategies, including events that are nearly impossible to foresee, such as pandemics or wars. This project aims to conduct an in-depth analysis of Amazon's stock using unsupervised learning techniques to predict its future movements.
+
+Data Gathering and Preprocessing
+The data for this analysis was obtained from the Financial Modeling Prep API, covering the last five years of Amazon's stock data. The dataset includes daily information on the date, open, high, low, close, and volume values. While the API provided a simple moving average feature, it was not used in this analysis.
+
+
+Exploratory Data Analysis
+Price Range
+Over the past five years, Amazon's stock reached a minimum closing price of $81.82 and a maximum of $186.57. A line plot of the closing prices visually represents the stock's price movements during this period.
+
+Peer Comparison
+To better understand Amazon's performance, its stock was compared to Apple, Walmart, and Google (GOOGL). Line plots of these companies' stocks revealed that Apple, Amazon, and Google exhibited similar movement patterns. However, a correlation analysis and heatmap visualization showed that Amazon's price movements were more strongly correlated with Google than with the other stocks.
+
+
+Unsupervised Learning Approach
+Data Preparation
+The first step in applying unsupervised learning techniques was to calculate the percentage change in Amazon's stock price from the previous day. Based on this change, a new column named "direction" was created, with values of "UP" for positive changes and "DOWN" for negative changes. Over the past five years, Amazon's stock went down 657 times and up 601 times. The data was then split into features (X) and the target variable (y). The features included open, high, low, close, and volume values, while the target variable was the "direction" column indicating whether the stock moved up or down.
+
+Model Selection and Evaluation
+Four different models were applied to the data: Decision Tree Classifier, Random Forest Classifier, Logistic Regression Classifier, and Support Vector Classifier (SVC). The performance of each model was evaluated using a confusion matrix and accuracy score.
+
+Decision Tree Classifier
+Confusion Matrix: [[84, 84], [72, 75]]
+Accuracy Score: 0.50
+The model predicted "UP" 160 times and "DOWN" 155 times.
+
+Support Vector Classifier (SVC)
+Confusion Matrix: [[155, 13], [137, 10]]
+Accuracy Score: 0.52
+The model predicted "DOWN" 292 times and "UP" 23 times, exhibiting a bias towards predicting downward movements.
+
+Logistic Regression Classifier
+Confusion Matrix: [[168, 0], [147, 0]]
+Accuracy Score: 0.5333333333333333
+The model failed to identify any positive instances (upward movements), labeling everything as the more frequent class (downward movements).
+
+Random Forest Classifier
+Confusion Matrix: [[91, 77], [80, 67]]
+Accuracy Score: 0.5015873015873016
+The model's accuracy was only slightly better than random guessing, suggesting relatively low predictive ability.
+
+Conclusion and Future Work
+The analysis revealed that the unsupervised learning models employed in this study had limited success in accurately predicting the movements of Amazon's stock. While some models performed better than others, their overall accuracy scores were relatively low, indicating a need for further improvements or alternative approaches. Future work could involve exploring additional features or incorporating external data sources, such as economic indicators or news sentiment analysis, to enhance the models' predictive capabilities. Additionally, ensemble methods or hybrid approaches combining unsupervised and supervised learning techniques could be investigated. It is important to note that predicting stock market movements is an inherently complex task, and even the most sophisticated models may struggle to capture all the intricate factors that influence stock prices. However, this analysis provides a foundation for further research and development in this field.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
